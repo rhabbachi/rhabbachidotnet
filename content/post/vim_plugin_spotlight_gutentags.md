@@ -1,7 +1,7 @@
 +++
 title = "[Vim plugin spotlight] vim-gutentags"
 categories = ["vim"]
-tags = ["vim","plugin", "vim-gutentags"]
+tags = ["vim","plugin", "vim-gutentags", "spotlight"]
 date = "2017-01-22T17:59:20+01:00"
 +++
 I've recently stumbled upon this vim plugin called
