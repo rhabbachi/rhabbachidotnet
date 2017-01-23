@@ -2,7 +2,7 @@
 title = "[Vim plugin spotlight] vim-gutentags"
 categories = ["vim"]
 tags = ["vim","plugin", "vim-gutentags"]
-date = "2017-01-05T17:59:20+01:00"
+date = "2017-01-22T17:59:20+01:00"
 +++
 I've recently stumbled upon this vim plugin called
 [vim-gutentags](https://github.com/ludovicchabant/vim-gutentags). Historically
@@ -27,10 +27,11 @@ not really an issue for me.
 One default setup of vim-gutentags that did not really for me is the cache tags
 file placement. By default, vim-gutentags will place the tags file on the root
 of the current repo. This was causing two side effects:
-1. This will generate noise on the git commands output like `git status` and
+
+- This will generate noise on the git commands output like `git status` and
    `git diff`. Not workflow breaking bot kind of annoing.
 
-2. Grepping (or in my case, [silver searching ...]
+- Grepping (or in my case, [silver searching ...]
 (https://github.com/ggreer/the_silver_searcher)) the whole repo will pollute
 the output with annoying noise. (again not a major workflow breaking,
 but really really annoying to have to go back and add the file to the --ignore
@@ -43,7 +44,7 @@ to put all the cache tag files into a specific directory (in my case, it the
 folder](https://github.com/rhabbachi/dotfiles/blob/master/home/.vimrc.bundles.local#L184)).
 This what that folder looks like now:
 
-![.vimtags folder](/static/dots_vimtags_content.png).
+![.vimtags folder](/images/dots_vimtags_content.png).
 
 I'm really looking forward to finding new ways to leverage the exuberant-ctags
 feature while working in vim (which is where I spend most of my time anyway).
