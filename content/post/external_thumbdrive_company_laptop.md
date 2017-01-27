@@ -2,7 +2,7 @@
 date = "2017-01-05T17:43:51+01:00"
 title = "Use an External Thumbdrive when using Company Laptop"
 categories = []
-tags = []
+tags = ["Thumbdrive"]
 draft = true
 +++
 
