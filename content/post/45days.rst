@@ -1,7 +1,6 @@
 +++
-date = "2017-01-26T22:02:44+01:00"
+date = "2017-01-27T11:00:19+01:00"
 title = "45 Days"
-draft = true
 categories = ["GoodReads"]
 tags = ["Medium", "Entrepreneurship"]
 
