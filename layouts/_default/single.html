@@ -24,11 +24,11 @@
             </article>
             <footer id="post-meta" class="clearfix">
                 {{ with .Site.Params.twitter }}<a href="https://twitter.com/{{ . }}">{{ end }}
-                  {{if .Site.Params.gravatarHash }}
-                  <img id="avatar" src="https://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}"/>
-                  {{ else }}
-                  <img class="avatar" src="{{ .Site.BaseURL }}images/avatar.png">
-                  {{ end }}
+                    {{if .Site.Params.gravatarHash }}
+                    <img class="avatar" src="https://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}"/>
+                    {{ else }}
+                    <img class="avatar" src="{{ .Site.BaseURL }}images/avatar.png"/>
+                    {{ end }}
                         <div>
                             <span class="dark">{{ .Site.Params.name }}</span>
                             <span>{{ .Site.Params.aboutAuthor }}</span>
