@@ -4,7 +4,8 @@ title = "Riadh Habbachi's Blog"
 theme = "hugo-cactus-theme"
 MetaDataFormat = "toml"
 # Enter your tracking code to enable Google Analytics
-googleAnalytics = ""
+googleAnalytics = "UA-102080280-1"
+
 # Disable comments by leaving disqusShortname empty
 disqusShortname = ""
 
