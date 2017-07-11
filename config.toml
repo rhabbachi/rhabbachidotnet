@@ -28,6 +28,7 @@ customJS  = []
 home = "/home"
 about = "/about"
 subscribe = "/feed"
+
 # Pagination links
 olderPosts = ""
 newerPosts = ""
@@ -45,6 +46,8 @@ subtitle404 = ""
 iconFont = "mono-social"
 # The social icons can be styled differently if you use mono as font - circle, rounded, or empty
 socialIconStyle = "circle"
+
+# Use gavatar as author image.
 gravatarHash = "57071062dd66187743d31ab6985565b4"
 
 # Add additional social link entries underneath
