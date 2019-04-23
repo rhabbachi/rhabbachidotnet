@@ -1,4 +1,5 @@
-baseurl = "//blog.rhabbachi.net/"
+# baseurl to be set depending on the env.
+# baseurl = ""
 languageCode = "en-us"
 title = "Riadh Habbachi's Blog"
 theme = "hugo-cactus-theme"
