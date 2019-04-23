@@ -1,0 +1,41 @@
+version: "2.1"
+
+services:
+  web:
+    hostname: web
+    image: wodby/nginx:1.15
+    volumes:
+      - project_root:/var/www:ro,nocopy  # Project root volume (read-only)
+    labels:
+      - io.docksal.virtual-host=${VIRTUAL_HOST},*.${VIRTUAL_HOST},${VIRTUAL_HOST}.*
+      - io.docksal.cert-name=${VIRTUAL_HOST_CERT_NAME:-none}
+      - io.docksal.project-root=${PROJECT_ROOT}
+      - io.docksal.permanent=${SANDBOX_PERMANENT:-false}
+      - traefik.enable=true
+      - traefik.backend=${COMPOSE_PROJECT_NAME_SAFE}-web
+      # - traefik.docker.network=ingress
+      - traefik.frontend.rule=Host:${VIRTUAL_HOST}
+      - traefik.port=80
+      # ADD SSL labels.
+      - traefik.frontend.entryPoints=http
+      # - traefik.domain=${VIRTUAL_HOST}
+    environment:
+      - NGINX_VHOST_PRESET=html
+      - NGINX_SERVER_ROOT=/var/www/${DOCROOT}
+      - NGINX_BASIC_AUTH_USER
+      - NGINX_BASIC_AUTH_PASS
+    dns:
+      - ${DOCKSAL_DNS1}
+      - ${DOCKSAL_DNS2}
+
+  crontab:
+    image: willfarrell/crontab
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+        # TODO add config from ./etc.
+    logging:
+      driver: json-file
+      options:
+        # Limit log size
+        max-size: "200k"
+        max-file: "10"

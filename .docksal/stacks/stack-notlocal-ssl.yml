@@ -1,0 +1,16 @@
+# Same sa stack-notlocal.yml with some traefik ssl labels.
+version: "2.1"
+
+services:
+  web:
+    extends:
+      file: ${PROJECT_ROOT}/.docksal/stacks/stack-notlocal.yml
+      service: web
+    labels:
+      - traefik.frontend.entryPoints=http
+      # - traefik.domain=${VIRTUAL_HOST}
+
+  crontab:
+    extends:
+      file: ${PROJECT_ROOT}/.docksal/stacks/stack-notlocal.yml
+      service: crontab
