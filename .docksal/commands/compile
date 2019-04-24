@@ -5,6 +5,6 @@
 ## Parameters:
 ##  $1 - baseURL to feed to Hugo command (defaults to  static.$VIRTUAL_HOST)
 
-STATIC_URL="${1:-http://static.${VIRTUAL_HOST}}"
+STATIC_URL="${1:-//${VIRTUAL_HOST}}"
 
-fin exec hugo --baseURL "${STATIC_URL}"
+fin exec hugo --baseURL "${STATIC_URL}" --destination "${DOCROOT}"
