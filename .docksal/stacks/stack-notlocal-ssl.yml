@@ -12,7 +12,7 @@ services:
       file: ${PROJECT_ROOT}/.docksal/stacks/stack-notlocal.yml
       service: web
     labels:
-      traefik.frontend.entryPoints: https
+      traefik.frontend.entryPoints: http,https
       traefik.frontend.redirect.entryPoint: https
 
   crontab:
