@@ -26,7 +26,6 @@ services:
       - --acme.onhostrule=true
       - --acme.httpchallenge
       - --acme.httpchallenge.entrypoint=http
-      # - --acme.domains=dev-godi.sbc4d.com
     networks:
       - ingress
     ports:

@@ -2,25 +2,31 @@
 version: "2.1"
 
 services:
-  web:
-    extends:
-      file: ${HOME}/.docksal/stacks/services.yml
-      service: web
-    # Add static.* virtualhost for compiled data
-    labels:
-      - io.docksal.virtual-host=static.${VIRTUAL_HOST}
-  # CLI
   cli:
     extends:
       file: ${HOME}/.docksal/stacks/services.yml
       service: cli
-    # Add labels since cli replaces web
-    labels:
-      - io.docksal.virtual-host=${VIRTUAL_HOST},*.${VIRTUAL_HOST}
-      - io.docksal.project-root=${PROJECT_ROOT}
-      - io.docksal.virtual-port=1313
     # Add custom image
-    image: docksal/cli:hugo-0.34
+    image: ${COMPOSE_PROJECT_NAME_SAFE}/cli
     build: services/cli
-    expose:
-      - 1313
+
+  web:
+    hostname: web
+    image: ${COMPOSE_PROJECT_NAME_SAFE}/web
+    build:
+      context: services/web
+      args:
+        NGINX_VER: 1.15
+        HOST_UID: ${HOST_UID}
+        HOST_GID: ${HOST_GID}
+    volumes:
+      - project_root:/var/www/html:ro,nocopy  # Project root volume (read-only)
+    environment:
+      NGINX_USER: wodby
+      NGINX_VHOST_PRESET: html
+      NGINX_SERVER_ROOT: /var/www/html/${DOCROOT}
+    labels:
+    - io.docksal.virtual-host=${VIRTUAL_HOST},*.${VIRTUAL_HOST},${VIRTUAL_HOST}.*
+    - io.docksal.cert-name=${VIRTUAL_HOST_CERT_NAME:-none}
+    - io.docksal.project-root=${PROJECT_ROOT}
+    - io.docksal.permanent=${SANDBOX_PERMANENT:-false}

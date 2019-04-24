@@ -2,13 +2,18 @@
 version: "2.1"
 
 services:
+  cli:
+    extends:
+      file: ${PROJECT_ROOT}/.docksal/stacks/stack-notlocal.yml
+      service: cli
+
   web:
     extends:
       file: ${PROJECT_ROOT}/.docksal/stacks/stack-notlocal.yml
       service: web
     labels:
-      - traefik.frontend.entryPoints=http
-      # - traefik.domain=${VIRTUAL_HOST}
+      traefik.frontend.entryPoints: https
+      traefik.frontend.redirect.entryPoint: https
 
   crontab:
     extends:
