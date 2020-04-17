@@ -54,7 +54,7 @@ iconFont = "mono-social"
 socialIconStyle = "circle"
 
 # Use gavatar as author image.
-gravatarHash = "57071062dd66187743d31ab6985565b4"
+gravatarHash = "78ccbd486b9e9f96fe32c8455b580871"
 
 # Add additional social link entries underneath
 [social]
