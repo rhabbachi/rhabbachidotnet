@@ -5,6 +5,41 @@
 ## Parameters:
 ##  $1 - baseURL to feed to Hugo command (defaults to  static.$VIRTUAL_HOST)
 
-STATIC_URL="${1:-//${VIRTUAL_HOST}}"
+set -e
 
-fin exec hugo --baseURL "${STATIC_URL}" --destination "${DOCROOT}"
+PARAMS=""
+arg_baseurl=""
+arg_destination=""
+
+while (("$#")); do
+  case "$1" in
+  --baseURL)
+    arg_baseurl=$2
+    shift 2
+    ;;
+  --destination)
+    arg_destination=$2
+    shift 2
+    ;;
+  --) # end argument parsing
+    shift
+    break
+    ;;
+  -* | --*=) # unsupported flags
+    echo "Error: Unsupported flag $1" >&2
+    exit 1
+    ;;
+  *) # preserve positional arguments
+    PARAMS="$PARAMS $1"
+    shift
+    ;;
+  esac
+done
+
+# set positional arguments in their proper place
+eval set -- "$PARAMS"
+
+BASEURL="${arg_baseurl:-//${VIRTUAL_HOST}}"
+DESTINATION="${arg_destination:-${DOCROOT}}"
+
+fin exec hugo --baseURL "${BASEURL}" --destination "${DESTINATION}" -v
