@@ -16,6 +16,8 @@ services:
       traefik.port: 80
       traefik.backend: ${COMPOSE_PROJECT_NAME_SAFE}-web
       traefik.frontend.rule: Host:${VIRTUAL_HOST}
+      traefik.frontend.entryPoints: http,https
+      traefik.frontend.redirect.entryPoint: https
     environment:
       - NGINX_BASIC_AUTH_USER
       - NGINX_BASIC_AUTH_PASS
