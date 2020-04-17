@@ -58,9 +58,9 @@ gravatarHash = "78ccbd486b9e9f96fe32c8455b580871"
 
 # Add additional social link entries underneath
 [social]
-githubalt = "https://www.github.com/rhabbachi"
-drupal = "https://www.drupal.org/u/rhabbachi"
-linkedin = "https://www.linkedin.com/in/rhabbachi"
+githubalt = "//www.github.com/rhabbachi"
+drupal = "//www.drupal.org/u/rhabbachi"
+linkedin = "//www.linkedin.com/in/rhabbachi"
 rss = "/index.xml"
 
 [taxonomies]
