@@ -1,30 +1,9 @@
+---
 # Override docksal.yml to use image with hugo
 version: "2.1"
 
 services:
-  cli:
-    extends:
-      file: ${HOME}/.docksal/stacks/services.yml
-      service: cli
-    # Add custom image
-    image: ${COMPOSE_PROJECT_NAME_SAFE}/cli
-    build: services/cli
-
   web:
-    hostname: web
-    image: ${COMPOSE_PROJECT_NAME_SAFE}/web
-    build:
-      context: services/web
-      args:
-        NGINX_VER: 1.15
-        HOST_UID: ${HOST_UID}
-        HOST_GID: ${HOST_GID}
-    volumes:
-      - project_root:/var/www/html:ro,nocopy  # Project root volume (read-only)
-    environment:
-      NGINX_USER: wodby
-      NGINX_VHOST_PRESET: html
-      NGINX_SERVER_ROOT: /var/www/html/${DOCROOT}
     labels:
       - io.docksal.virtual-host=${VIRTUAL_HOST},*.${VIRTUAL_HOST},${VIRTUAL_HOST}.*
       - io.docksal.cert-name=${VIRTUAL_HOST_CERT_NAME:-none}
