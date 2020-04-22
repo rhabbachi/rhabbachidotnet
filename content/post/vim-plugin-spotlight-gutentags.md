@@ -48,11 +48,3 @@ This what that folder looks like now:
 
 I'm really looking forward to finding new ways to leverage the exuberant-ctags
 feature while working in vim (which is where I spend most of my time anyway).
-
-<div id="license">
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
-</a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-Creative Commons Attribution 4.0 International License
-</a>.
-</div>
