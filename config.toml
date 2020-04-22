@@ -1,71 +1,111 @@
 # baseurl to be set depending on the env.
 # baseurl = ""
 languageCode = "en-us"
-title = "Riadh Habbachi's Blog"
-theme = "hugo-cactus-theme"
-MetaDataFormat = "toml"
+title = "rhabbachi"
 
-# Enter your tracking code to enable Google Analytics
+# Enable comments by entering your Disqus shortname
+# disqusShortname = "spf13"
+
+# Enable Google Analytics by entering your tracking code
 googleAnalytics = "UA-102080280-1"
 
-# Disable comments by leaving disqusShortname empty
-disqusShortname = ""
-
-[params]
-name = "Riadh Habbachi"
-description = "Personal Website of Riadh Habbachi"
-bio = "Software Craftsman, Technology enthusiast."
-
-# Enter optionally your twitter account
-twitter = ""
-enableRSS = true
-
-# Add custom assets with their paths relative to the static folder
-customCSS = []
-customJS  = []
-
-# The variables below are optionally too and can be used to
-# translate or customize each string of the theme.
-
-# Navigation links
-home = "/home"
-about = "/about"
-subscribe = "/feed"
-resume = "/resume"
-
-# Pagination links
-olderPosts = ""
-newerPosts = ""
-readMore = ""
-copyright = ""
-
-# Sharing options and author information in posts
-aboutAuthor = ""
-tweet = ""
-share = ""
-
-# 404 page
-title404 = "OOPS!"
-subtitle404 = "There is a chance that what you typed is wrong, but most likely I broke something. Sorry!"
-
-# Choose a font for the social icons in the footer. Either "mono-social" or "font-awesome"
-iconFont = "mono-social"
-# The social icons can be styled differently if you use mono as font - circle, rounded, or empty
-socialIconStyle = "circle"
-
-# Use gavatar as author image.
-gravatarHash = "78ccbd486b9e9f96fe32c8455b580871"
-
-# Add additional social link entries underneath
-[social]
-githubalt = "//www.github.com/rhabbachi"
-drupal = "//www.drupal.org/u/rhabbachi"
-linkedin = "//www.linkedin.com/in/rhabbachi"
-rss = "/index.xml"
-
-[taxonomies]
-tag = "tags"
-category = "categories"
+# Define the number of posts per page
+paginate = 10
+footnotereturnlinkcontents = "↩"
+theme = "icarus"
 
 [permalinks]
-post = "/:year/:month/:day/:title/" # optional
+    post = "/:year/:month/:day/:slug"
+
+
+[params]
+    # Tell me who you are
+    author = "Riadh Habbachi"
+    bio = "Software Craftsman"
+    location = "Earth"
+    site_description = "Personal Website of Riadh Habbachi"
+    copyright  = "Riadh Habbachi. Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
+    avatar = "css/images/avatar.png"
+
+    # Enter your email address to display your Gravatar icon in the profile. If not set the theme
+    # will fallback to the avatar.
+    gravatar = "habbachi.riadh@gmail.com"
+    logo = "css/images/logo.png"
+
+    disable_mathjax = true # set to true to disable MathJax
+
+    # define which types of pages should be shown. By default the type with the most regular pages
+    mainSections = ["post"]
+
+    # Format dates with Go's time formatting
+    date_format = "2006-01-02"
+
+    # Add custom assets with their paths relative to the static folder
+	custom_css = []
+	custom_js  = []
+
+# Create custom menu entries by defining a label and a link for
+# them. Since you can also link posts, you've the option the
+# place the links before or after them.
+#
+# E.g.: "Home" appears before all linked posts in the menu
+# and "Tags" / "Categories" after them.
+[[params.menu]]
+    before = true
+    label  = "Home"
+    link   = "/"
+
+[[params.menu]]
+    before = false
+    label  = "Tags"
+    link   = "tags/"
+
+[[params.menu]]
+    before = false
+    label  = "Categories"
+    link   = "categories/"
+
+# Enter a link for the follow button on the left
+[params.profile]
+    follow_button = "//twitter.com/_rhabbachi_"
+
+
+[social]
+# Add your social network accounts to the profile section on the left
+# by entering your username. The links to your account will be
+# created automatically.
+    github          = "rhabbachi"
+    gitlab          = "rhabbachi"
+    bitbucket       = ""
+    jsfiddle        = ""
+    codepen         = ""
+    foursquare      = ""
+    dribbble        = ""
+    deviantart      = ""
+    behance         = ""
+    flickr          = ""
+    instagram       = ""
+    youtube         = ""
+    vimeo           = ""
+    vine            = ""
+    medium          = ""
+    wordpress       = ""
+    tumblr          = ""
+    xing            = ""
+    linkedin        = "rhabbachi"
+    slideshare      = ""
+    stackoverflow   = ""
+    reddit          = ""
+    pinterest       = ""
+    googleplus      = ""
+    facebook        = ""
+    facebook_admin  = ""
+    twitter_domain  = ""
+    twitter         = "_rhabbachi_"
+
+# Enable and disable widgets for the right sidebar
+[params.widgets]
+    recent_articles = true
+    categories = true
+    tags = true
+    tag_cloud = false

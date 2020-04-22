@@ -2,6 +2,7 @@
 title = "About"
 date = "2016-01-02T22:45:06+01:00"
 menu = "main"
+disable_comments = true
 +++
 
 My name is Riadh Habbachi and this is my blog.
