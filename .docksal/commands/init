@@ -1,37 +1,29 @@
 #!/usr/bin/env bash
 
-## Initialize demo Hugo site
+## Initialize Hugo instance.
 
-# Console colors
-red='\033[0;91m'
-green='\033[0;32m'
-yellow='\033[1;33m'
-NC='\033[0m'
-echo-green () { echo -e "${green}$1${NC}"; }
-echo-yellow () { echo -e "${yellow}$1${NC}"; }
+# shellcheck source=/dev/null
+source "$(dirname "${BASH_SOURCE[0]}")"/inc/common.inc
+# source $PROJECT_ROOT/.docksal/commands/inc/common.inc
 
 # Abort if anything fails
 set -e
 
-# URL where compiled static site will be available
-STATIC_URL="http://static.${VIRTUAL_HOST}"
-
-# --------------------- RUNTIME --------------------
-
-cd "$PROJECT_ROOT"
-
-# Reset everything as usual
-fin project reset -f
+if [[ $DOCKER_RUNNING == "true" ]]; then
+  fin reset -f
+else
+  fin up
+fi
 
 # Compile static site
 echo-green "Compiling a static site..."
-fin exec hugo --baseURL "${STATIC_URL}"
+fin hugo
 
 # Done
 sleep 1
 echo
 echo-green "Done!"
-echo -e "  Open ${yellow}${STATIC_URL}${NC}"
-echo -e "  To develop a Hugo site with real-time updates use ${yellow}fin develop${NC} (see README.md for details)"
+echo -e "  Open ${yellow}${VIRTUAL_HOST}${NC}"
+echo -e "  To develop a Hugo site with real-time updates use ${yellow}fin hugo -w -D${NC} (see README.md for details)"
 echo
 echo -e "  Read more about Hugo on https://gohugo.io/getting-started/quick-start/"

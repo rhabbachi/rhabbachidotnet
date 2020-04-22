@@ -4,4 +4,4 @@
 ##
 ## See 'fin hugo help' for details
 
-fin exec hugo "$@"
+fin exec hugo --baseURL "//${VIRTUAL_HOST}" --destination "${DOCROOT}" "$@"
