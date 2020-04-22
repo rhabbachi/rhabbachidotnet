@@ -1,5 +1,5 @@
 +++
-title = "[Vim plugin spotlight] vim-gutentags"
+title = "ludovicchabant/vim-gutentags"
 categories = ["vim"]
 tags = ["vim","plugin", "vim-gutentags", "spotlight"]
 date = "2017-01-22T17:59:20+01:00"

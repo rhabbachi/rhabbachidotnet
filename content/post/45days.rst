@@ -17,7 +17,7 @@ tags = ["Medium", "Entrepreneurship"]
 |
 
 Just discovered this articles serie over at medium.com. The author (Liam
-Boogar) is walking us throw his last 45 Days of his company facing bankrupcy
+Boogar) is walking us through his last 45 Days of his company facing bankrupcy
 and his last ditch efforts to save what could be saved and all the interaction
 with the parties envolved (be it from within the company like the employees or
 external like investors and potential acquieres).
